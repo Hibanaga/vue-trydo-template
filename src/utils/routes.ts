@@ -1,6 +1,10 @@
 enum Routes {
     Home = '/',
-    About = '/about'
+    Service = '/service',
+    About = '/about',
+    Pages = '/pages',
+    Blocks = '/blocks',
+    Contact = '/contact'
 }
 
 export default Routes

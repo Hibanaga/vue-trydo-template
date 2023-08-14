@@ -1,15 +1,26 @@
-<script lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+import TopBar from '@/components/modules/TopBar/index.vue';
+
+export default defineComponent({
+  components: {
+    TopBar,
+  },
+});
+</script>
 
 <template>
-  <header class='header'>
-    <h1>title</h1>
+  <header class="header">
+    <TopBar />
   </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .header {
+    height: 100vh;
     width: 100%;
-    background-color: red;
-    padding: 0;
+    background: center center url("/header/background.jpeg");
+    background-size: cover;
   }
 </style>
