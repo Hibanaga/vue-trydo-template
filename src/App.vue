@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import Header from '@/components/layouts/header/index.vue';
-</script>
+import TopBar from '@/components/modules/TopBar/index.vue';</script>
 
 <template>
-  <Header />
+  <TopBar />
+  <!--  <Header />-->
   <RouterView />
 </template>
 

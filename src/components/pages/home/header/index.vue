@@ -1,7 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-
-import TopBar from '@/components/modules/TopBar/index.vue';
 import LayoutContainer from '@/components/layouts/container/index.vue';
 
 const descriptions = [
@@ -27,7 +25,6 @@ const descriptions = [
 
 export default defineComponent({
   components: {
-    TopBar,
     LayoutContainer,
   },
   setup() {
@@ -40,8 +37,6 @@ export default defineComponent({
 
 <template>
   <header class="header">
-    <TopBar />
-
     <layout-container>
       <h1 class="headline">
         A digital
@@ -70,6 +65,7 @@ export default defineComponent({
   width: 100%;
   background-size: cover;
   background-color: #000;
+  padding-top: 10em;
 
   &::before {
     content: "";
