@@ -1,0 +1,85 @@
+@import 'base.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+html, body, * {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html, body {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  line-height: 140%;
+}
+
+#app {
+  font-weight: normal;
+}
+
+
+@media all and (max-width: 1750px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 1600px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 1360px) {
+  body {
+    font-size: 15.5px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  body {
+    font-size: 14.5px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 640px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  body {
+    font-size: 12.5px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 281px) {
+  body {
+    font-size: 11px;
+  }
+}
+
