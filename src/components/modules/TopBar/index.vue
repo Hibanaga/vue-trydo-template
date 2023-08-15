@@ -57,7 +57,8 @@ export default defineComponent({
 .container {
   width: 100%;
   height: 10em;
-  position: relative;
+  position: absolute;
+  z-index: 2;
 
   .row {
     height: 100%;
