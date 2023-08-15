@@ -4,7 +4,6 @@ import TopBar from '@/components/modules/TopBar/index.vue';</script>
 
 <template>
   <TopBar />
-  <!--  <Header />-->
   <RouterView />
 </template>
 
