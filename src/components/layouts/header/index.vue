@@ -17,10 +17,10 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
-  .header {
-    height: 100vh;
-    width: 100%;
-    background: center center url("/header/background.jpeg");
-    background-size: cover;
-  }
+.header {
+  height: 100vh;
+  width: 100%;
+  background: center center url("/header/background.jpeg");
+  background-size: cover;
+}
 </style>

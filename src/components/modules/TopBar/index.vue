@@ -1,102 +1,58 @@
 <script lang="ts">
-import Routes from '@/utils/routes';
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 
+import LayoutButton from '@/components/layouts/button/index.vue';
+import navigation from '@/assets/navigation';
+import { ButtonSizes, ButtonStyles } from '@/utils/ButtonProps';
+import Routes from '@/utils/routes';
+
 export default defineComponent({
-    name: 'TopBar',
-    setup() {
-      const route = useRoute();
+  name: 'TopBar',
+  components: {
+    LayoutButton,
+  },
+  setup() {
+    const route = useRoute();
 
-      const nav = [
-        {
-          key: 'home',
-          label: "Home",
-          href: Routes.Home,
-          elements: [
-            { key: 'lorem', label: "Lorem", href: Routes.Home },
-            { key: 'lorem-ipsum', label: "Lorem Ipsum", href: Routes.Home },
-            { key: 'ipsum', label: "Ipsum", href: Routes.Home },
-          ]
-        },
-        {
-          key: "service",
-          label: "Service",
-          href: Routes.Service,
-          elements: [
-            { key: 'service', label: "Service", href: Routes.Service },
-            { key: 'service-details', label: "Service Details", href: Routes.Service },
-          ]
-        },
-        {
-          key: 'about',
-          label: "About",
-          href: Routes.About,
-        },
-        {
-          key: "pages",
-          label: "Pages",
-          href: Routes.Pages,
-          elements: [
-            { key: "blog-list", label: "Blog List", href: Routes.Pages },
-            { key: "blog-details", label: "Blog Details", href: Routes.Pages },
-            { key: "service", label: "Service", href: Routes.Pages },
-            { key: "service-details", label: "Service Details", href: Routes.Pages },
-            { key: "portfolio", label: "Portfolio", href: Routes.Pages },
-            { key: "portfolio-details", label: "Portfolio Details", href: Routes.Pages },
-          ]
-        },
-        {
-          key: "blocks",
-          label: "Blocks",
-          href: Routes.Blocks,
-          elements: [
-            { key: "portfolio", label: "Portfolio", href: Routes.Blocks },
-            { key: "team", label: "Team", href: Routes.Blocks },
-            { key: "service", label: "Service", href: Routes.Blocks }
-          ]
-        },
-        {
-          key: "contact",
-          label: "Contact",
-          href: Routes.Contact,
-        }
-      ]
-
-      return {
-        Routes,
-        route,
-        nav,
-      }
+    return {
+      Routes,
+      route,
+      nav: navigation,
+      ButtonSizes,
+      ButtonStyles,
     }
-  });
+  }
+});
 </script>
 
 <template>
   <nav class="container">
     <div class="row">
-        <div class="column-logo">
-          <router-link :to="Routes.Home">
-            <img src="/header/logo.svg" class="image" alt="logo alt image" />
-          </router-link>
-        </div>
-        <div class="column-nav">
-          <ul class="nav-list">
-            <li v-bind:key="element.key" v-for="(element) in nav" class="list-element">
-              <router-link :to="element.href" class="data-link">
-                <span class="data-value">{{element.label}}</span>
-              </router-link>
+      <div class="column-logo">
+        <router-link :to="Routes.Home">
+          <img src="/header/logo.svg" class="image" alt="logo alt image" />
+        </router-link>
+      </div>
+      <div class="column-nav">
+        <ul class="nav-list">
+          <li v-bind:key="element.key" v-for="(element) in nav" class="list-element">
+            <router-link :to="element.href" class="data-link">
+              <span class="data-value">{{ element.label }}</span>
+            </router-link>
 
-              <ul class="list-sub-menu" v-if="element.elements">
-                <li v-bind:key="subElement.key" v-for="(subElement) in element.elements" class="list-sub-element">
-                  <router-link :to="subElement.href" class="data-sub-link">
-                    <span class="data-value">{{subElement.label}}</span>
-                  </router-link>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+            <ul class="list-sub-menu" v-if="element.elements">
+              <li v-bind:key="subElement.key" v-for="(subElement) in element.elements" class="list-sub-element">
+                <router-link :to="subElement.href" class="data-sub-link">
+                  <span class="data-value">{{ subElement.label }}</span>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <LayoutButton label="BUY NOW" />
+      </div>
     </div>
   </nav>
 </template>
@@ -122,6 +78,8 @@ export default defineComponent({
 
     .column-nav {
       height: 100%;
+      display: flex;
+      align-items: center;
 
       .nav-list {
         height: 100%;
@@ -137,7 +95,7 @@ export default defineComponent({
             position: absolute;
             left: 0;
             top: 100%;
-            min-width: 14em;
+            width: 10em;
             background-color: #FFF;
             padding: .75em;
             border-radius: .25em;
@@ -158,7 +116,7 @@ export default defineComponent({
                 border-radius: .25em;
 
                 &:hover {
-                  background-color: rgba(249,0,77,.07);
+                  background-color: rgba(249, 0, 77, .07);
 
                   .data-value {
                     color: #f9004d;
