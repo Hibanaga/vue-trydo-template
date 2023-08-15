@@ -1,6 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useRoute } from 'vue-router';
 
 import LayoutButton from '@/components/layouts/button/index.vue';
 import navigation from '@/assets/navigation';
@@ -13,11 +12,8 @@ export default defineComponent({
     LayoutButton,
   },
   setup() {
-    const route = useRoute();
-
     return {
       Routes,
-      route,
       nav: navigation,
       ButtonSizes,
       ButtonStyles,
@@ -51,7 +47,7 @@ export default defineComponent({
           </li>
         </ul>
 
-        <LayoutButton label="BUY NOW" />
+        <layout-button label="BUY NOW" />
       </div>
     </div>
   </nav>
@@ -61,6 +57,7 @@ export default defineComponent({
 .container {
   width: 100%;
   height: 10em;
+  position: relative;
 
   .row {
     height: 100%;
