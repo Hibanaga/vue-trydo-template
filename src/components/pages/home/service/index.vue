@@ -1,37 +1,40 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import IconGenerator from '@/components/layouts/IconGenerator/index.vue';
 import LayoutContainer from '@/components/layouts/container/index.vue';
+import icons from '@/assets/icons';
 
 const tabs = [
   {
     key: 'business-stratagy',
     label: 'Business Stratagy',
     description: 'I throw myself down among the tall grass by the stream as I lie close to the earth.',
-    imageUrl: '/service/network.svg'
+    svg: icons.network,
   },
   {
     key: 'website-development',
     label: 'Website Development',
     description: 'I throw myself down among the tall grass by the stream as I lie close to the earth.',
-    imageUrl: '/service/layers.svg'
+    svg: icons.layers
   },
   {
     key: 'marketing-reporting',
     label: 'Marketing & Reporting',
     description: 'I throw myself down among the tall grass by the stream as I lie close to the earth.',
-    imageUrl: '/service/society.svg'
+    svg: icons.groupPeople
   },
   {
     key: 'mobile-app',
     label: 'Mobile App Development',
     description: 'I throw myself down among the tall grass by the stream as I lie close to the earth.',
-    imageUrl: '/service/computer.svg'
+    svg: icons.monitor
   },
 ]
 
 export default defineComponent({
   components: {
     LayoutContainer,
+    IconGenerator
   },
   setup() {
     return {
@@ -51,8 +54,8 @@ export default defineComponent({
 
       <div class="column-nav">
         <ul class="list">
-          <li class="list-element" :key="key" v-for="({ key, label, description, imageUrl }) in tabs">
-            <img :src="imageUrl" class="image" :alt="label" />
+          <li class="list-element" :key="key" v-for="({ key, label, description, svg }) in tabs">
+            <icon-generator :children="svg" :width="'2em'" :height="'2em'" />
             <div class="inner-content">
               <h3 class="data-label">{{ label }}</h3>
               <span class="data-description">{{ description }}</span>
@@ -94,8 +97,7 @@ export default defineComponent({
         grid-template-columns: repeat(2, 1fr);
 
         .list-element {
-          .image {
-          }
+          padding: 2em;
 
           .inner-content {
             .data-label {
