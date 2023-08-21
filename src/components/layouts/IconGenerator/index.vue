@@ -5,7 +5,10 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'IconGenerator',
   props: {
-    children: String,
+    children: {
+      type: String,
+      required: true,
+    },
     size: {
       type: Number,
       default: 1,
@@ -50,6 +53,5 @@ export default defineComponent({
       :height="computedSize"
       xmlns="http://www.w3.org/2000/svg"
       v-html="children"
-      class="icon"
   />
 </template>
