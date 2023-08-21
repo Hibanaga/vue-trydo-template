@@ -6,14 +6,9 @@ export default defineComponent({
   name: 'IconGenerator',
   props: {
     children: String,
-    width: {
-      type: String,
-      default: '1em',
-      required: false,
-    },
-    height: {
-      type: String,
-      default: '1em',
+    size: {
+      type: Number,
+      default: 1,
       required: false,
     },
     fill: {
@@ -26,12 +21,22 @@ export default defineComponent({
       default: 'currentColor',
       required: false,
     },
+    strokeWidth: {
+      type: Number,
+      default: 1,
+      required: false,
+    },
     hover: {
       type: String,
       default: 'currentColor',
       required: false,
-    }
-  }
+    },
+  },
+  computed: {
+    computedSize(): string {
+      return `${this.size}em`;
+    },
+  },
 });
 </script>
 
@@ -39,22 +44,12 @@ export default defineComponent({
   <svg
       :stroke="stroke"
       :fill="fill"
-      stroke-width="2"
+      :stroke-width="strokeWidth"
       viewBox="0 0 24 24"
-      :width="width"
-      :height="height"
+      :width="computedSize"
+      :height="computedSize"
       xmlns="http://www.w3.org/2000/svg"
       v-html="children"
-  >
-  </svg>
+      class="icon"
+  />
 </template>
-
-<style lang="scss" scoped>
-.icon {
-  transition: fill 0.3s;
-
-  &:hover {
-    fill: var(--hover-color, transparent);
-  }
-}
-</style>

@@ -55,7 +55,7 @@ export default defineComponent({
       <div class="column-nav">
         <ul class="list">
           <li class="list-element" :key="key" v-for="({ key, label, description, svg }) in tabs">
-            <icon-generator :children="svg" :width="'2em'" :height="'2em'" />
+            <icon-generator class="icon" :children="svg" :size="3" :stroke-width="1.25" />
             <div class="inner-content">
               <h3 class="data-label">{{ label }}</h3>
               <span class="data-description">{{ description }}</span>
@@ -98,6 +98,14 @@ export default defineComponent({
 
         .list-element {
           padding: 2em;
+
+          .icon {
+            transition: 150ms ease-in;
+
+            &:hover {
+              color: red;
+            }
+          }
 
           .inner-content {
             .data-label {
