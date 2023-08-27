@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import LayoutContainer from '@/components/layouts/container/index.vue';
+import LayoutContainer from '@/components/layouts/Container/index.vue';
 
 const descriptions = [
   {

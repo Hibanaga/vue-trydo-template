@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import LayoutButton from '@/components/layouts/button/index.vue';
+import LayoutButton from '@/components/layouts/Button/index.vue';
 import navigation from '@/assets/navigation';
 import { ButtonSizes, ButtonStyles } from '@/utils/ButtonProps';
 import Routes from '@/utils/routes';
