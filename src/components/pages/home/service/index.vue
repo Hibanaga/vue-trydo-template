@@ -1,7 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import IconGenerator from '@/components/layouts/IconGenerator/index.vue';
-import LayoutContainer from '@/components/layouts/container/index.vue';
+import LayoutContainer from '@/components/layouts/Container/index.vue';
+import LayoutLink from '@/components/layouts/Link/index.vue';
 import icons from '@/assets/icons';
 
 const tabs = [
@@ -34,7 +35,8 @@ const tabs = [
 export default defineComponent({
   components: {
     LayoutContainer,
-    IconGenerator
+    IconGenerator,
+    LayoutLink,
   },
   setup() {
     return {
@@ -50,6 +52,7 @@ export default defineComponent({
       <div class='column-description'>
         <h2 class="data-headline">Services</h2>
         <span class="data-description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</span>
+        <layout-link label="Request Custom Service" href="/" />
       </div>
 
       <div class="column-nav">
@@ -77,12 +80,21 @@ export default defineComponent({
 
     .column-description {
       width: 40%;
+      margin-top: 5em;
 
       .data-headline {
-
+        font-size: 4em;
+        font-weight: 700;
+        color: #1f1f25;
       }
 
       .data-description {
+        display: block;
+        font-size: 1.2em;
+        line-height: 150%;
+        color: rgba(29, 29, 36, .75);
+        margin-bottom: 1em;
+
         .image {
 
         }
@@ -95,23 +107,67 @@ export default defineComponent({
       .list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 2em 2em;
 
         .list-element {
           padding: 2em;
+          transition: all .4s ease-in-out 0s;
+          border-radius: .5em;
+          position: relative;
+          cursor: pointer;
+
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            background-image: linear-gradient(90deg, #f61b10, #ef0963);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: all .4s ease-in-out 0s;
+            border-radius: .5em;
+          }
 
           .icon {
-            transition: 150ms ease-in;
-
-            &:hover {
-              color: red;
-            }
+            transition: all .4s ease-in-out 0s;
+            color: #f9004d;
           }
 
           .inner-content {
+            margin-top: .5em;
+
             .data-label {
+              margin-bottom: 1em;
+              transition: all .4s ease-in-out 0s;
             }
 
             .data-description {
+              transition: all .4s ease-in-out 0s;
+            }
+          }
+
+          &:hover {
+            transform: translateY(-.25em);
+            box-shadow: 0 10px 25px 10px rgba(0, 0, 0, .1);
+
+            &::before {
+              opacity: 1;
+            }
+
+            .icon {
+              color: #FFF;
+            }
+
+            .inner-content {
+              .data-label {
+                color: #FFF;
+              }
+
+              .data-description {
+                color: #FFF;
+              }
             }
           }
         }
