@@ -1,10 +1,9 @@
 <script lang="ts">
-
+import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import { PropType } from 'vue/dist/vue';
 
 export default defineComponent({
-  name: 'IconGenerator',
+  name: 'LayoutLink',
   props: {
     href: {
       type: String,
@@ -29,7 +28,7 @@ export default defineComponent({
   </a>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .layout-link {
   display: inline-block;
   position: relative;
